@@ -15,11 +15,13 @@ class HomeController extends Controller
                 'Accept'        => 'application/json',
                 'Authorization' => 'Bearer ' . auth()->user()->token->access_token
             ])->get('http://127.0.0.1:8000/api/products');
+
+            if($response->status() == 200) {
+                $products = $response->json();
+            }
         }
 
-        if($response->status() == 200) {
-            $products = $response->json();
-        }
+
 
         return view('/dashboard', ['products' => $products]);
     }

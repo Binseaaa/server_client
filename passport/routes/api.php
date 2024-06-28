@@ -8,6 +8,6 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('/dashboard', [ProductController::class, 'index'])->middleware('auth:api');
+// Route::get('/dashboard', [ProductController::class, 'index'])->middleware('auth:api');
 Route::get('/products', [ProductController::class, 'index'])->middleware('auth:api');
 
